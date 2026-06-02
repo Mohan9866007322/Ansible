@@ -1,0 +1,14 @@
+- name: conditions testing
+  hosts: all
+  tasks:
+    - name: check if nginix is installed
+      ansible.builtin.yum:
+        name: nginx
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: check if nginx is installed
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+      when: ansible_os_family == "Debian"
