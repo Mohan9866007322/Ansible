@@ -1,0 +1,10 @@
+- name: execute shell commands
+  hosts: FEDORA
+  tasks:
+  - name: execute shell 
+    ansible.builtin.shell: "rpm -qa | grep -i tar >> /tmp/tar.txt"
+    register: shell_output
+
+  - name: execute shell output
+    ansible.builtin.debug:
+      msg: "{{ shell_output.stdout }}" 
