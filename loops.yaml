@@ -1,15 +1,15 @@
 - name: loops
   hosts: all
+  become: true
   connection : local
   tasks:
-    - name: loop with list
-      ansible.builtin.debug:
-        msg: "integer is {{ item }}" # item is a variable which is used to loop through the list
+    - name: install packages
+      ansible.builtin.packages:
+        name: "{{ item }}"
+        state: present
       loop:
-        - one
-        - two
-        - three
-
+        - nginx
+        - httpd
 
 
 
