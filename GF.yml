@@ -1,7 +1,6 @@
 ---
 - name: gather facts testing
   hosts: FEDORA
-  connection: local
   tasks:
     - name: gather facts
       ansible.builtin.debug:
