@@ -1,0 +1,15 @@
+- name: loops
+  hosts: all
+  connection : local
+  tasks:
+    - name: loop with list
+      ansible.builtin.debug:
+        msg: "integer is {{ item }}" # item is a variable which is used to loop through the list
+      loop:
+        - one
+        - two
+        - three
+
+
+
+
